@@ -161,10 +161,3 @@ conn.close()
 
 ---
 
-## Next Steps
-
-To achieve maximum grading (all +0.5 bonus points), you can also:
-
-* **Transaction authenticity**: call the real payment gateway API to verify.
-* **HTTPS**: run Dream with `~cert` and `~key` for a TLS server.
-
