@@ -156,6 +156,8 @@ for row in conn.execute("SELECT * FROM transactions"):
     print(row)
 conn.close()
 ```
+<img width="706" alt="Captura de Tela 2025-06-10 às 01 59 39" src="https://github.com/user-attachments/assets/3d2392b9-23fb-4526-8232-50849e2e7905" />
+
 
 ---
 
