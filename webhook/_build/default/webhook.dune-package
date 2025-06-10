@@ -1,0 +1,61 @@
+(lang dune 3.19)
+(name webhook)
+(sections (lib .) (libexec .) (bin ../../bin))
+(files
+ (lib
+  (META
+   dune-package
+   http_client.ml
+   opam
+   transaction_store.ml
+   webhook.a
+   webhook.cma
+   webhook.cmi
+   webhook.cmt
+   webhook.cmx
+   webhook.cmxa
+   webhook.ml
+   webhook__.cmi
+   webhook__.cmt
+   webhook__.cmx
+   webhook__.ml
+   webhook__Http_client.cmi
+   webhook__Http_client.cmt
+   webhook__Http_client.cmx
+   webhook__Transaction_store.cmi
+   webhook__Transaction_store.cmt
+   webhook__Transaction_store.cmx))
+ (libexec (webhook.cmxs))
+ (bin (webhook)))
+(library
+ (name webhook)
+ (kind normal)
+ (archives (byte webhook.cma) (native webhook.cmxa))
+ (plugins (byte webhook.cma) (native webhook.cmxs))
+ (native_archives webhook.a)
+ (requires cohttp-lwt-unix yojson digestif lwt_ppx sqlite3 lwt)
+ (main_module_name Webhook)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name webhook__)
+     (visibility public)
+     (kind alias)
+     (source (path Webhook__) (impl (path webhook__.ml-gen))))
+    (name Webhook)
+    (modules
+     (module
+      (obj_name webhook__Http_client)
+      (visibility public)
+      (source (path Http_client) (impl (path http_client.ml))))
+     (module
+      (obj_name webhook__Transaction_store)
+      (visibility public)
+      (source (path Transaction_store) (impl (path transaction_store.ml))))
+     (module
+      (obj_name webhook)
+      (visibility public)
+      (source (path Webhook) (impl (path webhook.ml))))))
+   (wrapped true))))

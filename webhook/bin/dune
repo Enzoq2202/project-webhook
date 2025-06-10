@@ -1,0 +1,4 @@
+(executable
+ (public_name webhook)
+ (name main)
+ (libraries webhook lwt.unix))

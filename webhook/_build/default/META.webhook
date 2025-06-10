@@ -1,0 +1,6 @@
+description = ""
+requires = "cohttp-lwt-unix digestif lwt lwt_ppx sqlite3 yojson"
+archive(byte) = "webhook.cma"
+archive(native) = "webhook.cmxa"
+plugin(byte) = "webhook.cma"
+plugin(native) = "webhook.cmxs"

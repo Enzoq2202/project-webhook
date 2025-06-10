@@ -1,0 +1,5 @@
+(library
+ (public_name webhook)
+ (name webhook)
+ (libraries cohttp-lwt-unix yojson digestif lwt_ppx sqlite3)
+ (preprocess (pps lwt_ppx)))
